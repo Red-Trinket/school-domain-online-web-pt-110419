@@ -12,6 +12,11 @@ class School
       ROSTER[grade] = []
       ROSTER[grade] << name
     end 
+  end 
+  
+  def grade(grade)
+    
+    ROSTER[grade].eac
   
   def initialize(name)
     @name = name 
