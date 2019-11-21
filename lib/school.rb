@@ -9,8 +9,9 @@ class School
     if ROSTER.include?(grade)
       ROSTER[grade] << name 
     else 
-    ROSTER[grade] = []
-    ROSTER[grade] << name
+      ROSTER[grade] = []
+      ROSTER[grade] << name
+    end 
   
   def initialize(name)
     @name = name 
