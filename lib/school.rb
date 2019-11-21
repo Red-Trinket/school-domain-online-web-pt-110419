@@ -1,32 +1,41 @@
-# code here!
 class School
-  
-  attr_accessor :name 
-  
-  ROSTER = {} 
-  
-  def add_student(name, grade)
-    if ROSTER.include?(grade)
-      ROSTER[grade] << name 
-    else 
-      ROSTER[grade] = []
-      ROSTER[grade] << name
-    end 
-  end 
-  
-  def grade(grade)
-    ROSTER[grade]
-  end
-  
-  def sort 
-    ROSTER.each do |grade|
-      ROSTER[grade].sort 
-    end 
-    ROSTER 
-  end 
+  attr_accessor :name, :roster
   
   def initialize(name)
-    @name = name 
+    @name = name
+    @roster = {}
   end 
   
-end
+  def add_student(student, level)
+    # this sort of means #=> a || a = b ... or #=> x || x = y
+    # it's freak'n weird
+    roster[level] ||= []
+    roster[level] << student
+  end 
+  
+  def grade(level)
+    roster.detect do |x, y| 
+      if x == level
+        return y 
+      end 
+    end 
+  end 
+  
+# This works, but it isn't passing learn.co's tests cause of 
+# how it displays syntactically...but the same information is there
+#  def sort 
+#    roster.sort_by do |x, y| 
+#      x 
+#    end 
+#  end 
+
+# Here's learn.co's solution:
+def sort 
+  nu_hash = {}
+  roster.each do |x, y| 
+    nu_hash[x] = y.sort 
+  end 
+  nu_hash
+end 
+  
+end 
