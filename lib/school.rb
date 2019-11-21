@@ -15,8 +15,15 @@ class School
   end 
   
   def grade(grade)
-    
-    ROSTER[grade].eac
+    ROSTER[grade]
+  end
+  
+  def sort 
+    ROSTER.each do |grade|
+      ROSTER[grade].sort 
+    end 
+    ROSTER 
+  end 
   
   def initialize(name)
     @name = name 
